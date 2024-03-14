@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:protos/protos.dart';
 import 'package:http/http.dart' as http;
 
@@ -20,7 +18,7 @@ class FeedMeassageServeice extends FeedServeiceServiceBase {
       headers: headers,
     );
 
-    print(response.body);
+    print(Trip.fromBuffer(response.bodyBytes));
 
     return VehicleData(vehicles: []);
   }
