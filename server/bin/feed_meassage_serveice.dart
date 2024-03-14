@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:protos/protos.dart';
+import 'package:http/http.dart' as http;
 
 class FeedMeassageServeice extends FeedServeiceServiceBase {
   FeedMeassageServeice();
@@ -7,6 +10,18 @@ class FeedMeassageServeice extends FeedServeiceServiceBase {
     ServiceCall call,
     GetAvailableBusRequest request,
   ) async {
+    final headers = {
+      "externalauth": 'RWLXTEgMcmuMj1mehBWi3ROaAfTmQwXjGksxvxD9'
+    };
+
+    final response = await http.get(
+      Uri.parse(
+          'https://external.chalo.com/dashboard/gtfs/realtime/thiruvananthapuram/ksrtc/bus'),
+      headers: headers,
+    );
+
+    print(response.body);
+
     return VehicleData(vehicles: []);
   }
 }
