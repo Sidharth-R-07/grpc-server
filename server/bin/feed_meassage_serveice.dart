@@ -20,6 +20,6 @@ class FeedMeassageServeice extends FeedServeiceServiceBase {
 
     print(VehicleData.fromBuffer(response.bodyBytes));
 
-    return VehicleData(vehicles: []);
+    return VehicleData.fromBuffer(response.bodyBytes);
   }
 }
