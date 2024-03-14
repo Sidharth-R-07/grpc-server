@@ -18,7 +18,7 @@ class FeedMeassageServeice extends FeedServeiceServiceBase {
       headers: headers,
     );
 
-    print(GetAvailableBusRequest.fromJson(response.body));
+    print(GetAvailableBusRequest.fromBuffer(response.bodyBytes));
 
     return VehicleData(vehicles: []);
   }
